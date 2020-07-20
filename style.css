@@ -27,6 +27,7 @@
         .navigation-greed {
             position: relative;
             display: grid;
+            width: 90%;
             grid-template-rows: repeat(8, 4.5vw);
             grid-template-columns: repeat(9, 4.5vw);
             gap: 2.5vw;
@@ -501,7 +502,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            bottom: 0;
             transition: all 1s ease;
         }
         
@@ -573,6 +574,55 @@
             background-color: silver;
         }
         
+        .latest-posts {
+            background-color: #eeeeee;
+            text-align: center;
+            padding: 5vw 10vw;
+        }
+        
+        .posts {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .latest-posts h2 {
+            display: inline-block;
+            margin: auto;
+            margin: 5vh auto;
+        }
+        
+        .post {
+            width: 25%;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .post .post-pic {
+            width: 100%;
+        }
+        
+        .post .post-pic>img {
+            width: 100%;
+        }
+        
+        .latest-posts .post .post-pic p {
+            font-size: 1em;
+            line-height: 1.5em;
+            padding: 0 5vh;
+            text-align: justify;
+        }
+        
+        .bottom-line {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            bottom: 0;
+        }
+        
         @media screen and (max-width:800px) {
             * {
                 font-size: 1.8em;
@@ -585,7 +635,6 @@
                 width: 100%;
             }
             .navigation-greed {
-                width: 100%;
                 grid-template-rows: repeat(8, 6.5vw);
                 grid-template-columns: repeat(9, 6.5vw);
                 gap: 5vw;
@@ -643,5 +692,47 @@
             .about-us .carusel>* {
                 width: 100%;
                 font-size: 1em;
+            }
+            .about-us .carusel .carusel-wrap {
+                min-height: 45vh;
+            }
+            .buttons {
+                height: 8vw;
+                width: 8vw;
+            }
+            .latest-posts {
+                font-size: 0.05rem;
+            }
+            .latest-posts h2 {
+                font-size: x-large;
+            }
+            .latest-posts h3 {
+                font-size: 1.2em;
+            }
+            .post {
+                width: 80%;
+                font-size: 1.7em;
+            }
+            .bottom-line {
+                padding: 0;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .bottom-line img {
+                font-size: 0.05rem;
+                width: 3vw;
+            }
+            .latest-posts .post .post-pic p {
+                font-size: 1.2em;
+                line-height: 1.2em;
+                padding: 0 5vw;
+                text-align: justify;
+            }
+            .post-comments {
+                font-size: 1em;
+            }
+            .bottom-line p {
+                font-size: 0.1em;
+                letter-spacing: normal;
             }
         }
