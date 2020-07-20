@@ -3,7 +3,7 @@ let rightBut = document.querySelector('.right-button');
 let leftBut = document.querySelector('.left-button');
 
 let buttons = document.querySelectorAll('.buttons');
-let radioButtons = document.querySelectorAll('[type="radio"]');
+let radioButtons = document.querySelectorAll('[data-id]');
 let caruselPos = 0;
 document.querySelector('.carusel-carusel').addEventListener('click', event => {
 
@@ -41,16 +41,27 @@ document.querySelector('.carusel-carusel').addEventListener('click', event => {
 
                 }
             }
-
+            checkRadio();
         } else if (event.target.closest('input')) {
             caruselPos = Number(event.target.dataset.id);
             carusel.style.cssText = `transform: translateX(-${caruselPos}%)`
-
+            if (caruselPos > 0) {
+                leftBut.classList.remove('inactive');
+                if (caruselPos == 200) {
+                    rightBut.classList.add('inactive');
+                }
+            } else if (caruselPos < 200) {
+                rightBut.classList.remove('inactive');
+                if (caruselPos == 0) {
+                    leftBut.classList.add('inactive');
+                }
+            }
+            checkRadio();
         } else {
             return;
         }
-        checkRadio();
-        checkButtons(event)
+
+        checkButtons(event);
         console.log(caruselPos)
 
     })
@@ -69,9 +80,7 @@ function checkRadio() {
 
     radioButtons.forEach(button => {
         if (button.dataset.id == caruselPos) {
-
-            button.setAttribute('checked', true);
-
+            button.setAttribute('checked', 'checked');
         } else {
             button.removeAttribute('checked')
         }
